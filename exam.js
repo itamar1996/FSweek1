@@ -274,25 +274,42 @@ let militaryUnit = {
 
 
   let Mission1 = (militaryUnit)=>{
-    let str =""
-    str+= militaryUnit.commandStructure.chiefOfStaff.name
-    str+=" " +militaryUnit.commandStructure.chiefOfStaff.rank
-    str+=" " +militaryUnit.commandStructure.chiefOfStaff.contact.phone
+    let str = "";
+    str+= militaryUnit.commandStructure.chiefOfStaff.name;
+    str+=" " +militaryUnit.commandStructure.chiefOfStaff.rank;
+    str+=" " +militaryUnit.commandStructure.chiefOfStaff.contact.phone;
 
-    console.log(str)
-    /*
-      chiefOfStaff: {
-  
-        rank: "Brigadier General",
-  
-        name: "Robert Brown",
-  
-        contact: {
-  
-          email: "robert.brown@example.com",
-  
-          phone: "+1-555-555-1234",
-  
-        },*/ 
+    console.log(str);
+    return str;
   }
-  Mission1(militaryUnit)
+  let Mission2 = (militaryUnit)=>{
+    let str = 0;
+    str= militaryUnit.personnel.length
+    console.log(str.toString());
+    return str.toString();
+  }
+  let NewDeployment= {
+  
+    location: "europe",
+
+    mission: "kill terorists",
+
+    startDate: "2024-10-01",
+
+    estimatedEndDate: "2024-12-31",
+
+  }
+  let Mission3 = (NewDeployment, militaryUnit)=>{
+    let historymission=
+    {
+        eventDate:militaryUnit.currentDeployment.startDate,
+        eventDescription:militaryUnit.currentDeployment.mission
+    }
+    militaryUnit.history.push(historymission);
+    militaryUnit.currentDeployment = NewDeployment;
+
+    return militaryUnit
+  }
+  Mission3(NewDeployment,militaryUnit)
+  //Mission2(militaryUnit)
+  //Mission1(militaryUnit)
