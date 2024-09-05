@@ -310,6 +310,37 @@ let militaryUnit = {
 
     return militaryUnit
   }
-  Mission3(NewDeployment,militaryUnit)
+  let newwepeone =     {
+  
+    type: "M16 Rifle",
+
+    quantity: 500,
+
+    status: "Operational",
+
+  }
+  let Mission4 = (newwepeone,militaryUnit)=>{
+    let arrwepones =  militaryUnit.equipment.firearms;
+    let length =arrwepones.length;
+
+    for (let index = 0; index < length; index++) {
+        if(arrwepones[index].type == newwepeone.type && 
+            arrwepones[index].status == newwepeone.status)
+            {
+                arrwepones[index].quantity+=newwepeone.quantity;
+                militaryUnit.equipment.firearms = arrwepones;
+                console.log(militaryUnit.equipment.firearms);
+                
+                return militaryUnit;
+            }
+    }
+    militaryUnit.equipment.firearms.push(newwepeone);
+    console.log(militaryUnit.equipment.firearms);
+    
+    return militaryUnit;
+
+  }
+  Mission4(newwepeone,militaryUnit);
+ // Mission3(NewDeployment,militaryUnit)
   //Mission2(militaryUnit)
   //Mission1(militaryUnit)
