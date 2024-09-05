@@ -321,18 +321,20 @@ let militaryUnit = {
   }
   let Mission4 = (newwepeone,militaryUnit)=>{
     let arrwepones =  militaryUnit.equipment.firearms;
-    let length =arrwepones.length;
-
-    for (let index = 0; index < length; index++) {
-        if(arrwepones[index].type == newwepeone.type && 
-            arrwepones[index].status == newwepeone.status)
+    let exsistw =false;
+    arrwepones.reduce((w)=>{
+        if(w.type == newwepeone.type && 
+            w.status == newwepeone.status)
             {
-                arrwepones[index].quantity+=newwepeone.quantity;
+                w.quantity+=newwepeone.quantity;
                 militaryUnit.equipment.firearms = arrwepones;
-                console.log(militaryUnit.equipment.firearms);
-                
-                return militaryUnit;
+                exsistw = true;
+ 
             }
+    })
+    if(exsistw){
+        console.log(militaryUnit.equipment.firearms);
+        return militaryUnit;
     }
     militaryUnit.equipment.firearms.push(newwepeone);
     console.log(militaryUnit.equipment.firearms);
@@ -340,7 +342,15 @@ let militaryUnit = {
     return militaryUnit;
 
   }
-  Mission4(newwepeone,militaryUnit);
+  let Mission5 = (militaryUnit)=>{
+    let totalduration = militaryUnit.trainingPrograms.reduce((sum, program) => {
+        return sum + program.duration;
+    }, 0);
+    console.log(totalduration.toString());
+    return totalduration.toString();
+  }
+  //Mission5(militaryUnit)
+  //Mission4(newwepeone,militaryUnit);
  // Mission3(NewDeployment,militaryUnit)
   //Mission2(militaryUnit)
   //Mission1(militaryUnit)
