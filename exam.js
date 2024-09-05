@@ -283,10 +283,10 @@ let militaryUnit = {
     return str;
   }
   let Mission2 = (militaryUnit)=>{
-    let str = 0;
-    str= militaryUnit.personnel.length
-    console.log(str.toString());
-    return str.toString();
+    let sumsolgers = 0;
+    sumsolgers= militaryUnit.personnel.length
+    console.log(sumsolgers.toString());
+    return sumsolgers.toString();
   }
   let NewDeployment= {
   
@@ -349,6 +349,13 @@ let militaryUnit = {
     console.log(totalduration.toString());
     return totalduration.toString();
   }
+  module.exports = {
+    Mission1,
+    Mission2,
+    Mission3,
+    Mission4,
+    Mission5
+  };
   //Mission5(militaryUnit)
   //Mission4(newwepeone,militaryUnit);
  // Mission3(NewDeployment,militaryUnit)
